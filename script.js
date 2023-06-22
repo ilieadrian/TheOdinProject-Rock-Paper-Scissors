@@ -1,5 +1,6 @@
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
+let playerSelection
+let score = 0
+const computerSelection = getComputerChoice()
 
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"]
@@ -7,30 +8,57 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    //  Rock beats scissors and loses to paper
-    if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
-        console.log ("You Win! Rock beats Scissors")
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
-        console.log ("You lose! Rock loses to Paper")
-    }  //  Paper beats rock, but loses to scissors
-    else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
-        console.log ("You Win! Paper beats Rock")
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
-        console.log ("You lose! Paper loses to Scissors")
-    } //  Scissors beat paper but loses to rock.
-    else if  (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
-        console.log ("You Win! Scissors beats Paper")
-    } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
-        console.log ("You lose! Scissors loses to Rock")
-    }   //The same option or typing error
-    else if (playerSelection.toLowerCase() === computerSelection){
-        console.log("It’s a tie. Play again!")
-    } else {
-        console.log("Looks like you misspeled. Play again!")
+    const player = playerSelection.toLowerCase()
+    
+    switch (player) {
+        case "rock":
+            if (computerSelection === "scissors") {
+                console.log("You Win! Rock beats Scissors")
+            } else if (computerSelection === "paper") {
+                console.log("You lose! Rock loses to Paper")
+            } else {
+                console.log("It’s a tie. Play again!")
+            }
+            break;
+        case "paper":
+            if (computerSelection === "rock") {
+                console.log("You Win! Paper beats Rock")
+            } else if (computerSelection === "scissors") {
+                console.log("You lose! Paper loses to Scissors")
+            } else {
+                console.log("It’s a tie. Play again!")
+            }
+            break;
+        case "scissors":
+            if (computerSelection === "paper") {
+                console.log("You Win! Scissors beats Paper")
+            } else if (computerSelection === "rock") {
+                console.log("You lose! Scissors loses to Rock")
+            } else {
+                console.log("It’s a tie. Play again!")
+            }
+            break;
+        default:
+            console.log("Looks like you misspelled. Play again!")
+            break;
     }
-    return 
-}   
+}
 
+function game() {
+
+    for(let i = 0; i < 5; i ++) {
+        playerSelection = prompt('Rock, Paper or Scissors?')
+        playRound(playerSelection, computerSelection)
+    }
+    
+}
+
+function scoreCount(){
+
+}
+
+
+game()
 
 
 
