@@ -1,7 +1,6 @@
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
-let computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
@@ -10,7 +9,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     const player = playerSelection.toLowerCase();
-    
+        
     switch (player) {
         case "rock":
             if (computerSelection === "scissors") {
@@ -73,15 +72,3 @@ function countScore() {
 }
 
 game();
-
-
-
-
-
-
-
-
-
-
-
-
