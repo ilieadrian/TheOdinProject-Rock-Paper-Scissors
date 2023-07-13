@@ -50,15 +50,17 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function playerSelection(playerSelection) {
+
+}
+
 function game() {
-    for(let i = 0; i < 5; i ++) {
-        playerSelection = prompt('Rock, Paper or Scissors?');
+    
         computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
-    }
 
-    const result = countScore();
-    console.log(result);
+        const result = countScore();
+        console.log(result);
 }
 
 function countScore() {

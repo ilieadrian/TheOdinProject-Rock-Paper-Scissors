@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors!</title>
 </head>
 <body>
-    <h2>Open console</h2>
+    <head>
+        <h1>Rock, Paper, Scissors</h1>
+    </head>
+    <main>
+        <div class="scoreboard">
+            <h2 class="round-info">Choose your weapon to start a game</h2>
+            <h3 class="round-message">First to score 5 points wins the game</h3>
+        </div>
+
+        <div class="score-container">
+            <div class="score-box">
+                <div class="sign" id="playerSelection">❔</div>
+                <div class="score" id="playerScore">Player: 0</div>
+            </div>
+
+            <div class="score-box">
+                <div class="sign" id="computerSelection">❔</div>
+                <div class="score" id="computerScore">Computer: 0</div>
+            </div>
+        </div>
+
+        <div id="player">
+            <i class="far fa-hand-rock fa-lg" id="rock"></i>
+            <i class="far fa-hand-paper" id ="paper"></i>
+            <i class="far fa-hand-scissors" id="scissors"></i>
+        </div>
+    </main>
+    
+    <p class="attribution">
+        Coded by <a href="http://ilieadrian.com">Ilie Adrian</a>.
     <script src="script.js"></script> 
 </body>
 </html>
