@@ -1,16 +1,27 @@
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
+let playerInput = document.getElementById('player-input');
 
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     return options[Math.floor(Math.random() * options.length)];
 }
 
+// get the input from the player
+playerInput.addEventListener('click', (e) => {return playerSelection = event.target.id});
+
+// function getPlayerSelection(playerSelection) {
+//     return playerSelection = event.target.id;
+    
+// }
+
+
 function playRound(playerSelection, computerSelection) {
-    const player = playerSelection.toLowerCase();
+    // const player = playerSelection.toLowerCase();
+    console.log(playerSelection, computerSelection)
         
-    switch (player) {
+    switch (playerSelection) {
         case "rock":
             if (computerSelection === "scissors") {
                 console.log("You Win! Rock beats Scissors");
@@ -50,12 +61,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function playerSelection(playerSelection) {
-
-}
-
 function game() {
-    
+        console.log(playerSelection, computerSelection)
         computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
 

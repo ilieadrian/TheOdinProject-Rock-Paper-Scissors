@@ -11,10 +11,10 @@
     <title>Rock Paper Scissors!</title>
 </head>
 <body>
-    <head>
-        <h1>Rock, Paper, Scissors</h1>
-    </head>
-    <main>
+    <header>
+        <h1 class="container">ROCK PAPER SCISSORS</h1>
+    </header>
+    <main class="container secondary-container">
         <div class="scoreboard">
             <h2 class="round-info">Choose your weapon to start a game</h2>
             <h3 class="round-message">First to score 5 points wins the game</h3>
@@ -32,15 +32,23 @@
             </div>
         </div>
 
-        <div id="player">
-            <i class="far fa-hand-rock fa-lg" id="rock"></i>
-            <i class="far fa-hand-paper" id ="paper"></i>
-            <i class="far fa-hand-scissors" id="scissors"></i>
+        <div id="player-input">
+            <div class="card">
+                <i class="far fa-hand-rock" id="rock"></i>
+                <p class="card-name">Rock</p>
+            </div>
+            <div class="card">
+                <i class="far fa-hand-paper" id ="paper"></i>
+                <p class="card-name">Paper</p>
+            </div>
+            <div class="card">
+                <i class="far fa-hand-scissors" id="scissors"></i>
+                <p class="card-name">Scissors</p>
+            </div>
         </div>
     </main>
     
-    <p class="attribution">
-        Coded by <a href="http://ilieadrian.com">Ilie Adrian</a>.
+    <p class="attribution">Coded by<a href="http://ilieadrian.com">Ilie Adrian</a></p>
     <script src="script.js"></script> 
 </body>
 </html>

@@ -1,8 +1,146 @@
+/* General styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 html {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+body {
     font-family: 'Open Sans', sans-serif;
+    background-color: #F9FBFC;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    line-height: 1.6;
+    text-align: center;
+    min-height: 100vh; 
+    overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+main {
+    padding-bottom: 3rem; 
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding-bottom: 3rem;  */
+}
+
+.secondary-container {
+    padding-bottom: 3rem; 
+}
+
+/* Header */
+header {
+    padding: .5rem 0;
+    color: #FAC650;
+    background-color: #000000;
+    font-size: 0.8rem;
+}
+
+/*Scoreboard */
+.scoreboard {
+    width: 100%;
+    padding: .5rem 0;
+    margin: 0;
+}
+
+.round-info {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+}
+
+.round-message {
+    font-size: 0.9rem;
+}
+
+/* Score display container */
+.score-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.score-box {
+    width: 170px;
 }
 
 .sign,
 .far {
-    font-size: 5rem;
+    font-size: 4rem;
 }
+
+.score {
+    margin: 0.8rem 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Player option selection zone */
+
+#player-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    gap: 30px;
+}
+
+.card {
+    width: 6rem;
+    height: 6rem;
+    border: 1px solid #959C9C;
+    border-radius: 6px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+i {
+    padding-top: 0.2rem;
+}
+
+
+
+/* Footer */
+.attribution {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 0.3rem;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.attribution a {
+    margin-left: 0.3rem;
+}
+
+
