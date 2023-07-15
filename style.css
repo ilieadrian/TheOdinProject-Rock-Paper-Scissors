@@ -30,10 +30,6 @@ h1, h2, h3 {
     margin: 0;
 }
 
-main {
-    padding-bottom: 3rem; 
-}
-
 .container {
     width: 100%;
     margin: 0 auto;
@@ -41,7 +37,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* padding-bottom: 3rem;  */
 }
 
 .secondary-container {
@@ -99,14 +94,13 @@ header {
 }
 
 /* Player option selection zone */
-
 #player-input {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 1rem 0;
-    gap: 30px;
+    gap: 1.5rem;
 }
 
 .card {
@@ -119,13 +113,16 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+.card:hover {
+    scale: 1.05;
 }
 
 i {
     padding-top: 0.2rem;
 }
-
-
 
 /* Footer */
 .attribution {
@@ -143,4 +140,49 @@ i {
     margin-left: 0.3rem;
 }
 
+@media only screen and (min-width: 640px){
+    header {
+        padding: 3rem;
+    }
 
+    h1 {
+        font-size: 2rem;
+    }
+
+    .scoreboard {
+        padding: 2rem 0;
+    }
+
+    .round-info {
+        margin-bottom: .5rem;
+        font-size: 2rem;
+    }
+
+    .round-message {
+        font-size: 1.25rem;
+    }
+
+    .sign,
+    .far {
+    font-size: 5rem;
+    }
+
+    .score {
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    #player-input{
+        margin-top: 1rem;
+        gap: 2rem;
+    }
+
+    .card {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    i {
+        padding-top: .5rem;
+    }
+}
