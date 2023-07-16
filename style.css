@@ -67,6 +67,22 @@ header {
     font-size: 0.9rem;
 }
 
+.replay-button {
+    display: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #959C9C;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin-top: 1rem;
+}
+
+a.replay-button {
+    text-decoration: none;
+    color: #FAC650;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 /* Score display container */
 .score-container {
     display: flex;

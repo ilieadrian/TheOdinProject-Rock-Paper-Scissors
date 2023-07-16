@@ -10,6 +10,7 @@ let computerOption = document.getElementById('computer-option');
 let computerDisplayedScore = document.getElementById('computer-score');
 let roundInfo = document.querySelector(".round-info");
 let roundMessage = document.querySelector(".round-message")
+let replayButton = document.querySelector(".replay-button")
 
 // get input from computer
 function getComputerChoice() {
@@ -126,16 +127,29 @@ function gameOver() {
     updateRoundMessage(resultInfo, resultMessage)
     updatePlayerScore(playerScore)
     updateComputerScore(computerScore);
+    playerOption.innerText = "❔";
+    computerOption.innerText= "❔";
+    replayButton.style.display = "none";
+    playerInput.addEventListener('click', getPlayerChoice);
 }
 
 
 function countScore(playerScore, computerScore) {
-    if (playerScore === 5 || computerScore === 5) {
-        gameOver();
-    }   
+    resultMessage = '';
+    const message = 
+    playerScore === 5 ? "Player wins!" :
+    computerScore === 5 ? "Computer wins!" :
+    "";
+
+    if(message){
+        updateRoundMessage(message, resultMessage)
+        replayButton.style.display = "inline-block";
+        playerInput.removeEventListener('click', getPlayerChoice);
+    }
 }
 
 playerInput.addEventListener('click', getPlayerChoice);
+replayButton.addEventListener("click", gameOver);
 
 
 
