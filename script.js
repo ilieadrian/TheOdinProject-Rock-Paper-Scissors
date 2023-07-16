@@ -1,83 +1,141 @@
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
+let resultInfo = "";
+let resultMessage = "";
 let playerInput = document.getElementById('player-input');
+let playerOption = document.getElementById('player-option');
+let playerDisplayedScore = document.getElementById('player-score');
+let computerOption = document.getElementById('computer-option');
+let computerDisplayedScore = document.getElementById('computer-score');
+let roundInfo = document.querySelector(".round-info");
+let roundMessage = document.querySelector(".round-message")
 
+// get input from computer
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     return options[Math.floor(Math.random() * options.length)];
 }
 
 // get the input from the player
-playerInput.addEventListener('click', (e) => {return playerSelection = event.target.id});
+function getPlayerChoice(event) {
+    const clickedElement = event.target.closest('.card');
+    if (clickedElement) {
+        playerSelection = clickedElement.id;
+    }
+    game();
+};
 
-// function getPlayerSelection(playerSelection) {
-//     return playerSelection = event.target.id;
-    
-// }
+// Update player's option on the page
+function updatePlayerOption(option) {
+    playerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
+}
+
+  // Update player's displayed score on the page
+function updatePlayerScore(score) {
+    playerDisplayedScore.textContent = `Player: ${score}`;
+}
+
+  // Update computer's option on the page
+function updateComputerOption(option) {
+    computerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
+}
+
+  // Update computer's displayed score on the page
+function updateComputerScore(score) {
+    computerDisplayedScore.textContent = `Computer: ${score}`;;
+}
+
+  // Update round result messages on the page
+function updateRoundMessage(info, message) {
+    roundInfo.textContent = info;
+    roundMessage.textContent = message;
+}
 
 
 function playRound(playerSelection, computerSelection) {
-    // const player = playerSelection.toLowerCase();
-    console.log(playerSelection, computerSelection)
-        
     switch (playerSelection) {
         case "rock":
             if (computerSelection === "scissors") {
-                console.log("You Win! Rock beats Scissors");
                 playerScore++;
+                resultInfo = "You Win!"; 
+                resultMessage = "Rock beats Scissors";
             } else if (computerSelection === "paper") {
-                console.log("You lose! Rock loses to Paper");
                 computerScore++;
+                resultInfo = "You lose!"; 
+                resultMessage = "Rock loses to Paper";                
             } else {
-                console.log("It’s a tie. Try again!");
+                resultInfo = "It’s a tie"; 
+                resultMessage = "Try again!";     
             }
             break;
         case "paper":
             if (computerSelection === "rock") {
-                console.log("You Win! Paper beats Rock");
                 playerScore++;
+                resultInfo = "You Win!"; 
+                resultMessage = "Paper beats Rock";
             } else if (computerSelection === "scissors") {
-                console.log("You lose! Paper loses to Scissors");
                 computerScore++;
+                resultInfo = "You lose!"; 
+                resultMessage = "Paper loses to Scissors";   
             } else {
-                console.log("It’s a tie. Try again!");
+                resultInfo = "It’s a tie"; 
+                resultMessage = "Try again!";     
             }
             break;
         case "scissors":
             if (computerSelection === "paper") {
-                console.log("You Win! Scissors beats Paper");
                 playerScore++;
+                resultInfo = "You Win!"; 
+                resultMessage = "Scissors beats Paper";                
             } else if (computerSelection === "rock") {
-                console.log("You lose! Scissors loses to Rock");
                 computerScore++;
+                resultInfo = "You lose!"; 
+                resultMessage = "Scissors loses to Rock";                 
             } else {
-                console.log("It’s a tie. Try again!");
+                resultInfo = "It’s a tie"; 
+                resultMessage = "Try again!";     
             }
             break;
         default:
-            console.log("Looks like you misspelled. Play again!");
+            resultInfo = "Looks like you misspelled."; 
+            resultMessage = "Play again!";     
             break;
     }
+
+    updatePlayerOption(playerSelection);
+    updatePlayerScore(playerScore);
+    updateComputerOption(computerSelection);
+    updateComputerScore(computerScore);
+    updateRoundMessage(resultInfo, resultMessage);
 }
 
 function game() {
-        console.log(playerSelection, computerSelection)
         computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
-
-        const result = countScore();
-        console.log(result);
+        countScore(playerScore, computerScore)
+        // const result = countScore();
+        // console.log(result);
 }
 
-function countScore() {
-    if (playerScore > computerScore) {
-        return "Player wins!";
-    } else if (playerScore < computerScore) {
-        return "Computer wins!";
-    } else {
-        return "It's a tie. Play again!";
-    }
+function gameOver() {
+    playerScore = 0;
+    computerScore = 0;
+    resultInfo = "Choose your weapon to start a game";
+    resultMessage = "First to score 5 points wins the game";   
+    updateRoundMessage(resultInfo, resultMessage)
+    updatePlayerScore(playerScore)
+    updateComputerScore(computerScore);
 }
 
-game();
+
+function countScore(playerScore, computerScore) {
+    if (playerScore === 5 || computerScore === 5) {
+        gameOver();
+    }   
+}
+
+playerInput.addEventListener('click', getPlayerChoice);
+
+
+

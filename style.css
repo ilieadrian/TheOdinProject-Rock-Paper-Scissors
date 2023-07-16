@@ -139,7 +139,7 @@ i {
 .attribution a {
     margin-left: 0.3rem;
 }
-
+/* Media queries */
 @media only screen and (min-width: 640px){
     header {
         padding: 3rem;
@@ -178,8 +178,8 @@ i {
     }
 
     .card {
-        width: 8rem;
-        height: 8rem;
+        width: 9rem;
+        height: 9rem;
     }
 
     i {
