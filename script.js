@@ -12,13 +12,11 @@ let roundInfo = document.querySelector(".round-info");
 let roundMessage = document.querySelector(".round-message")
 let replayButton = document.querySelector(".replay-button")
 
-// get input from computer
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     return options[Math.floor(Math.random() * options.length)];
 }
 
-// get the input from the player
 function getPlayerChoice(event) {
     const clickedElement = event.target.closest('.card');
     if (clickedElement) {
@@ -27,27 +25,22 @@ function getPlayerChoice(event) {
     game();
 };
 
-// Update player's option on the page
 function updatePlayerOption(option) {
     playerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
 }
 
-  // Update player's displayed score on the page
 function updatePlayerScore(score) {
     playerDisplayedScore.textContent = `Player: ${score}`;
 }
 
-  // Update computer's option on the page
 function updateComputerOption(option) {
     computerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
 }
 
-  // Update computer's displayed score on the page
 function updateComputerScore(score) {
     computerDisplayedScore.textContent = `Computer: ${score}`;;
 }
 
-  // Update round result messages on the page
 function updateRoundMessage(info, message) {
     roundInfo.textContent = info;
     roundMessage.textContent = message;
@@ -115,8 +108,6 @@ function game() {
         computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
         countScore(playerScore, computerScore)
-        // const result = countScore();
-        // console.log(result);
 }
 
 function gameOver() {
@@ -133,13 +124,11 @@ function gameOver() {
     playerInput.addEventListener('click', getPlayerChoice);
 }
 
-
 function countScore(playerScore, computerScore) {
     resultMessage = '';
     const message = 
     playerScore === 5 ? "Player wins!" :
-    computerScore === 5 ? "Computer wins!" :
-    "";
+    computerScore === 5 ? "Computer wins!" : "";
 
     if(message){
         updateRoundMessage(message, resultMessage)
