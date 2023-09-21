@@ -25,27 +25,11 @@ function getPlayerChoice(event) {
     game();
 };
 
-function updatePlayerOption(option) {
-    playerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
+function game() {
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+    countScore(playerScore, computerScore)
 }
-
-function updatePlayerScore(score) {
-    playerDisplayedScore.textContent = `Player: ${score}`;
-}
-
-function updateComputerOption(option) {
-    computerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
-}
-
-function updateComputerScore(score) {
-    computerDisplayedScore.textContent = `Computer: ${score}`;;
-}
-
-function updateRoundMessage(info, message) {
-    roundInfo.textContent = info;
-    roundMessage.textContent = message;
-}
-
 
 function playRound(playerSelection, computerSelection) {
     switch (playerSelection) {
@@ -104,10 +88,38 @@ function playRound(playerSelection, computerSelection) {
     updateRoundMessage(resultInfo, resultMessage);
 }
 
-function game() {
-        computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-        countScore(playerScore, computerScore)
+function updatePlayerOption(option) {
+    playerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
+}
+
+function updatePlayerScore(score) {
+    playerDisplayedScore.textContent = `Player: ${score}`;
+}
+
+function updateComputerOption(option) {
+    computerOption.innerHTML = `<i class="far fa-hand-${option}"></i>`;
+}
+
+function updateComputerScore(score) {
+    computerDisplayedScore.textContent = `Computer: ${score}`;;
+}
+
+function updateRoundMessage(info, message) {
+    roundInfo.textContent = info;
+    roundMessage.textContent = message;
+}
+
+function countScore(playerScore, computerScore) {
+    resultMessage = '';
+    const message = 
+    playerScore === 5 ? "Player wins!" :
+    computerScore === 5 ? "Computer wins!" : "";
+
+    if(message){
+        updateRoundMessage(message, resultMessage)
+        replayButton.style.display = "inline-block";
+        playerInput.removeEventListener('click', getPlayerChoice);
+    }
 }
 
 function gameOver() {
@@ -124,21 +136,5 @@ function gameOver() {
     playerInput.addEventListener('click', getPlayerChoice);
 }
 
-function countScore(playerScore, computerScore) {
-    resultMessage = '';
-    const message = 
-    playerScore === 5 ? "Player wins!" :
-    computerScore === 5 ? "Computer wins!" : "";
-
-    if(message){
-        updateRoundMessage(message, resultMessage)
-        replayButton.style.display = "inline-block";
-        playerInput.removeEventListener('click', getPlayerChoice);
-    }
-}
-
 playerInput.addEventListener('click', getPlayerChoice);
 replayButton.addEventListener("click", gameOver);
-
-
-
